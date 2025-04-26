@@ -1,0 +1,117 @@
+.pagina-carrinho {
+  padding: 2rem;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  width: 500px;
+}
+
+.pagina-carrinho h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: #000000;
+}
+
+.pagina-carrinho ul {
+  list-style: none;
+  padding: 0;
+  
+}
+
+
+.item-carrinho {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  background-color: #f9f9f9;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.item-carrinho p{
+color: black;
+font-weight: 600;
+text-align: left;
+}
+.item-carrinho img {
+  border-radius: 8px;
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+}
+
+.info-item {
+  flex: 1;
+}
+
+.info-item strong {
+  font-size: 1.2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.info-item p {
+  margin: 0.3rem 0;
+}
+
+.quantidade-controle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.quantidade-controle button {
+  background-color: #747373;
+  color: white;
+  border: none;
+  padding: 5px;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: 50px;
+}
+
+.quantidade-controle button:hover {
+  background-color: #3f3e3e;
+}
+
+.botao-remover {
+  background-color: #3ec08e;
+  margin-top: 5px;
+}
+
+.botao-remover:hover {
+  background-color: #184b37;
+}
+
+.total-carrinho {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.total-carrinho h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.total-carrinho button {
+  background-color: #3ec08e;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: 200px;
+}
+
+.total-carrinho button:hover {
+  background-color: #184b37;
+}

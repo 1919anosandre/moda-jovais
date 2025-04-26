@@ -1,0 +1,41 @@
+h2{
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.9rem;
+    text-shadow: 2px 2px 5px rgba(0,0,0);
+
+    }
+
+p{
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.5rem;
+}
+    
+.container-home {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .home-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.home-text {
+    position: absolute;
+    bottom: 0; /* coloca o texto no fim da imagem */
+    left: 0;
+    width: 100%;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.5); /* corrigido */
+    transform: none; /* remove o deslocamento vertical */
+  }
+  
+  
