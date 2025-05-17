@@ -1,4 +1,4 @@
-function CardProduto({ nome, preco, imagem }) {
+function CardProduto({ nome, preco, imagem, tamanho}) {
   function adicionarAoCarrinho() {
     const carrinhoAtual = JSON.parse(localStorage.getItem("carrinho")) || [];
 
@@ -6,7 +6,9 @@ function CardProduto({ nome, preco, imagem }) {
       id: Date.now(),
       nome,
       preco: parseFloat(preco),
-      imagem
+      imagem,
+      tamanho
+
     };
 
     const novoCarrinho = [...carrinhoAtual, novoProduto];
@@ -19,6 +21,14 @@ function CardProduto({ nome, preco, imagem }) {
     <div className="Card">
       <img src={imagem} alt={nome} />
       <h4>{nome}</h4>
+      <select name="tamanho" id="tamanho">
+        <option value="m">M</option>
+        <option value="m">P</option>
+        <option value="m">G</option>
+        <option value="m">GG</option>
+
+
+      </select>
       <p>R$ {preco}</p>
       <button onClick={adicionarAoCarrinho}>Comprar</button>
     </div>

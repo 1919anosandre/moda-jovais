@@ -20,7 +20,9 @@ import imgmoletomcolccifitnessfeminino from "/src/assets/moletom-colcci-fitness-
 import imgblusachiffonfeminina from "/src/assets/blusa-chiffon-decote-branca-feminina.jpg";
 import imgblusawearfeminina from "/src/assets/blusa-wear-feminina.jpg";
 import imgblusasocialfemininamangalongacaramelo from "/src/assets/blusa-social-feminina-manga-longa-caramelo.jpg";
-import imgblusaheringfemininamangafeminina from "/src/assets/blusa-hering-feminina-manga-feminina.webp"
+import imgblusaheringfemininamangafeminina from "/src/assets/blusa-hering-feminina-manga-feminina.webp";
+import imgcalcajeansfeminina from "/src/assets/calça-jeans-feminina.webp";
+import imgcalçaslimmasculina from "/src/assets/calca_masculina_alfaiataria_sarja_slim_marrom.webp"
 function Card() {
   const [categoria, setCategoria] = useState("todas");
   const [carrinho, setCarrinho] = useState([]);
@@ -75,9 +77,31 @@ function Card() {
   <CardProduto nome="Moletom burn cropped preto feminino" preco="59.90" imagem={imgblusasocialfemininamangalongacaramelo} />
   <CardProduto nome="Moletom burn cropped preto feminino" preco="59.90" imagem={imgblusaheringfemininamangafeminina} />
 
+  </div>
+</div>
+
+
+<div className="moda-feminina-calças-femininas">
+  <div className="produtos">
+  <CardProduto nome="Calça Jeans feminino" preco="59.90" imagem={imgcalcajeansfeminina} />
+  <CardProduto nome="Calça Jeans feminino" preco="59.90" imagem={imgcalcajeansfeminina} />
+  <CardProduto nome="Calça Jeans feminino" preco="59.90" imagem={imgcalcajeansfeminina} />
+  <CardProduto nome="Calça Jeans feminino" preco="59.90" imagem={imgcalcajeansfeminina} />
 
   </div>
 </div>
+
+
+<div className="moda-masculina-calcas">
+  <div className="produtos">
+  <CardProduto nome="Calça slim marrom masculina" preco="59.90" imagem={imgcalçaslimmasculina} />
+  <CardProduto nome="Calça slim marrom masculina" preco="59.90" imagem={imgcalçaslimmasculina} />
+  <CardProduto nome="Calça slim marrom masculina" preco="59.90" imagem={imgcalçaslimmasculina} />
+  <CardProduto nome="Calça slim marrom masculina" preco="59.90" imagem={imgcalçaslimmasculina} />
+
+  </div>
+</div>
+
 
     </div>
   );

@@ -62,7 +62,15 @@ function Header() {
         <li>Masculino</li>
       </ul>
     </li>
+    <li>
+      Calças
+      <ul className="dropdown">
+        <li>Feminino</li>
+        <li>Masculino</li>
+      </ul>
+    </li>
   </ul>
+  <li>Promoções</li>
 </nav>
 
     </header>

@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import "/src/styles/Carrinho.css"; 
 import "/src/styles/global.css";
+import arrow from "/src/assets/arrow-left.svg"
+import Footer from "/src/components/Footer";
 
 function Carrinho() {
   const [carrinho, setCarrinho] = useState([]);
@@ -49,10 +51,14 @@ function Carrinho() {
     0
   );
 
-  return (
-    <div className="pagina-carrinho">
-      <h2> Seu Carrinho</h2>
 
+  return (
+ 
+    <div className="pagina-carrinho">
+      <div className="alinhar-titulo-svg">
+<img src={arrow}  alt="Voltar" className="icone-voltar" />
+<h2> Seu Carrinho</h2>
+</div>
       {carrinho.length === 0 ? (
         <p>Carrinho vazio</p>
       ) : (
@@ -63,6 +69,7 @@ function Carrinho() {
                 <img src={item.imagem} alt={item.nome} />
                 <div className="info-item">
                   <strong>{item.nome}</strong>
+                  <p>{item.tamanho}</p>
                   <p> R$ {item.preco.toFixed(2)}</p>
                   <div className="quantidade-controle">
                     <button onClick={() => diminuirQuantidade(item.id)}>-</button>
@@ -80,11 +87,15 @@ function Carrinho() {
           <div className="total-carrinho">
             <h3>Total: R$ {totalCarrinho.toFixed(2)}</h3>
             <button onClick={limparCarrinho}> Limpar Carrinho</button>
+            
+       
           </div>
         </>
       )}
     </div>
   );
+
 }
+<Footer/>
 
 export default Carrinho;

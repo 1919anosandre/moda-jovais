@@ -30,17 +30,18 @@
   margin-bottom: 1rem;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 10px;
 }
 
 .item-carrinho p{
 color: black;
-font-weight: 600;
+font-weight: 700;
 text-align: left;
 }
 .item-carrinho img {
   border-radius: 8px;
-  height: 150px;
-  width: 150px;
+  height: 160px;
+  width: 160px;
   object-fit: cover;
 }
 
@@ -82,12 +83,12 @@ text-align: left;
 }
 
 .botao-remover {
-  background-color: #3ec08e;
+  background-color: #D9A441;
   margin-top: 5px;
 }
 
 .botao-remover:hover {
-  background-color: #184b37;
+  background-color:  #000000;
 }
 
 .total-carrinho {
@@ -101,7 +102,7 @@ text-align: left;
 }
 
 .total-carrinho button {
-  background-color: #3ec08e;
+  background-color: #D9A441;
   color: white;
   padding: 0.8rem 1.5rem;
   font-size: 15px;
@@ -114,4 +115,16 @@ text-align: left;
 
 .total-carrinho button:hover {
   background-color: #184b37;
+}
+
+.alinhar-titulo-svg{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.alinhar-titulo-svg img{
+height: 50px;
+margin-top: 30px;
+margin-right: 100px;
 }

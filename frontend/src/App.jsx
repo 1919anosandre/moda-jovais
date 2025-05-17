@@ -9,36 +9,53 @@ import axios from 'axios';
 
 function App() {
   const [usuarios, setUsuarios] = useState([]);
-  
+  const [auth, setAuth] = useState(false); // Autenticado?
+
   useEffect(() => {
-    axios.get('http://localhost:3001/usuarios')
-      .then(res => setUsuarios(res.data))
-      .catch(err => console.log(err));
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      // Configura o token para todas as requisições axios
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      console.log("Token encontrado:", token);
+
+      axios.get('http://localhost:3001/usuarios')
+        .then(res => {
+          setUsuarios(res.data);
+          setAuth(true); // Token válido, autorizado
+        })
+        .catch(err => {
+          console.log("Erro ao buscar usuários:", err);
+          setAuth(false); // Token inválido ou expirado
+          localStorage.removeItem('token'); // Remove token inválido
+        });
+    } else {
+      console.log("Nenhum token encontrado.");
+      setAuth(false);
+    }
   }, []);
-  
+
   return (
-    <>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Login" element={<Login />} />
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Login" element={<Login setAuth={setAuth} />} />
+        <Route path="/Card" element={<Card />} />
+        <Route path="/contato" element={<Contato />} />
+        <Route path="/Carrinho" element={<Carrinho />} />
+      </Routes>
 
-          <Route path="/Card" element={<Card />} />
-          <Route path="/contato" element={<Contato />} />
-          <Route path="/Carrinho" element={<Carrinho />} />
-
-        </Routes>
-      </Router>
-
-      <div>
-        <h1>Usuários</h1>
-        <ul>
-          {usuarios.map(user => (
-            <li key={user.id}>{user.nome} - {user.email}</li>
-          ))}
-        </ul>
-      </div>
-    </>
+      {auth && (
+        <div>
+          <h1>Usuários</h1>
+          <ul>
+            {usuarios.map(user => (
+              <li key={user.id}>{user.nome} - {user.email}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </Router>
   );
 }
 

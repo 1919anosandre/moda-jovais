@@ -1,5 +1,5 @@
 header {
-  background: #3ec08e;
+  background: #0F3D3E;
   color: white;
   padding: 10px;
   top: 0;
@@ -79,7 +79,7 @@ header {
   position: relative;
   display: inline-block;
   margin-right: 20px;
-  color: #000000;
+  color: #F5F1EA;
   cursor: pointer;
   font-weight: 500;
 }
