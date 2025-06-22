@@ -3,6 +3,7 @@ import Home from "../src/pages/Home";
 import Login from "../src/pages/Login";
 import Card from "../src/pages/Card";
 import Carrinho from "/src/pages/Carrinho";
+import Detalhes from "/src/pages/Detalhes";
 import Contato from "../src/pages/Contato";
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -41,7 +42,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Login" element={<Login setAuth={setAuth} />} />
         <Route path="/Card" element={<Card />} />
-        <Route path="/contato" element={<Contato />} />
+        <Route path="/Detalhes" element={<Detalhes />} />
+        <Route path="/Contato" element={<Contato />} />
         <Route path="/Carrinho" element={<Carrinho />} />
       </Routes>
 

@@ -2,8 +2,15 @@ import { useState, useEffect } from 'react';
 import CardProduto from "/src/components/CardProduto";
 import "/src/styles/Card.css";
 import '/src/styles/global.css';
+import CoresProduto from "/src/components/CoresItens";
+
+import camisapolopreta from "/src/assets/camisapolomasculinapreta.webp";
+import camisapolocinza from "/src/assets/camisapolomasculinacinza.jpg";
+import camisapoloazul from "/src/assets/camisapolomasculinaazul.webp";
+import imgcamisaoversizedverde from "/src/assets/camisaoversized-vede.jpg";
 import Imgcamisetaoversized from "/src/assets/camiseta-oversized-masculina-removebg-preview.png";
-import imgcamisaeuropeia from "/src/assets/camisa-manga-europeia-removebg-preview.png";
+import imgcamisaeuropeia from "/src/assets/camisamasculinahiphop.jpg";
+import imgcamisetaoverzdebranca from "/src/assets/camisetaoversidebranca.jpg";
 import imgcamisapretabasica from "/src/assets/camisas-estilosas-preta.jpg";
 import imgcamisabrancabasica from "/src/assets/camisa-branca-basica-removebg-preview.png";
 import imgcamisarosabasica from "/src/assets/camisa-rosa-basica.webp";
@@ -37,26 +44,51 @@ function Card() {
     setCarrinho([]);
   };
 
+  
+const cores = ["#000000", "#ffffff", "#c2b280"];
+const imagens = [imgcamisaeuropeia, imgcamisetaoverzdebranca,Imgcamisetaoversized ];
+
+const coresPorProduto = {
+  "Camiseta Oversized": ["rgb(25, 25, 58)", "rgb(3, 48, 3)", ],
+  "Camiseta europeia hip hop": ["#ffffff", "#2a2a2a"],
+  "Camiseta Preta Básica": ["#000000" , "#ffffff", "#ffc0cb"],
+  "Camisa Polo": ["#000000", "rgb(25, 25, 58)", "#808080"],
+
+  "Camiseta basica feminina ": ["#000000", "rgb(255, 0, 0)","#ffffff"],
+
+
+  "Camisa social crepe bolinhas": ["#f5f5f5", "#000000"],
+  "Moletom burn cropped preto feminino": ["#000000"],
+  "Moletom rosa capuz facinelli feminino": ["#ffb6c1"],
+  "Moletom preto flanelado feminino": ["#000000"],
+  "Moletom Colcci cinza fitness feminino": ["#808080"],
+  "Blusa chiffon branca feminina": ["#ffffff"],
+  "Blusa wear feminina": ["#f8f8ff"],
+  "Blusa social caramelo": ["#a0522d"],
+  "Blusa hering manga longa": ["#dcdcdc"],
+  "Calça Jeans feminino": ["#1e3d59", "#2f4f4f"],
+  "Calça slim marrom masculina": ["#8b4513", "#a0522d"]
+};
+
+
   return (
     <div>
       <h3>Confira nossos produtos</h3>
 
       <div className="moda-masculina-camisetas">
         <div className="produtos">
-          <CardProduto nome="Camiseta Oversized" preco="59.90" imagem={Imgcamisetaoversized} />
-          <CardProduto nome="Camiseta europeia hip hop" preco="59.90" imagem={imgcamisaeuropeia} />
-          <CardProduto nome="Camiseta Preta Básica" preco="59.90" imagem={imgcamisapretabasica} />
-          <CardProduto nome="Camiseta Branca Básica" preco="59.90" imagem={imgcamisabrancabasica} />
-          <CardProduto nome="Camiseta Rosa" preco="59.90" imagem={imgcamisarosabasica} />
-          <CardProduto nome="Camiseta Roxa Alive" preco="59.90" imagem={imgcamisetaalivebasicaroxomasculino} />
+     <CardProduto nome="Camiseta Oversized" preco="59.90"   imagem={[Imgcamisetaoversized, imgcamisaoversizedverde]} // Exemplo
+ cores={coresPorProduto["Camiseta Oversized"]} />
+    <CardProduto nome="Camiseta  hip hop" preco="59.90" imagem={[imgcamisetaoverzdebranca ,imgcamisaeuropeia ]} cores={coresPorProduto["Camiseta europeia hip hop"]} />
+    <CardProduto nome="Camiseta Básica  Slim" preco="59.90"  imagem={[imgcamisapretabasica, imgcamisabrancabasica, imgcamisarosabasica]} cores={coresPorProduto["Camiseta Preta Básica"]} />
+    <CardProduto nome="Camisa Polo" preco="59.90" imagem={[camisapolopreta, camisapoloazul, camisapolocinza]} cores={coresPorProduto["Camisa Polo"]} />
+
         </div>
       </div>
 
       <div className="moda-feminina-camisetas">
         <div className="produtos">
-          <CardProduto nome="Camiseta Ellus vermelha feminina" preco="59.90" imagem={imgcamisetaellus} />
-          <CardProduto nome="Camiseta Levis basic branca" preco="59.90" imagem={imgcamisetalevis} />
-          <CardProduto nome="Camiseta básica preta feminina" preco="59.90" imagem={imgcamisetabasicapretafeminina} />
+          <CardProduto nome="Camiseta básica feminina" preco="59.90" imagem={[imgcamisetabasicapretafeminina ,imgcamisetaellus, imgcamisetalevis ]} cores={coresPorProduto["Camiseta basica feminina"]} />
           <CardProduto nome="Camisa social crepe bolinhas" preco="59.90" imagem={imgcamisasocialcrepeestampabolinhas} />
         </div>
       </div>
@@ -70,37 +102,37 @@ function Card() {
         </div>
       </div>
 
-<div className="moda-feminina-blusas">
-  <div className="produtos">
-  <CardProduto nome="Moletom burn cropped preto feminino" preco="59.90" imagem={imgblusachiffonfeminina} />
-  <CardProduto nome="Moletom burn cropped preto feminino" preco="59.90" imagem={imgblusawearfeminina} />
-  <CardProduto nome="Moletom burn cropped preto feminino" preco="59.90" imagem={imgblusasocialfemininamangalongacaramelo} />
-  <CardProduto nome="Moletom burn cropped preto feminino" preco="59.90" imagem={imgblusaheringfemininamangafeminina} />
+      <div className="moda-feminina-blusas">
+        <div className="produtos">
+          <CardProduto nome="Moletom burn cropped preto feminino" parcelas="14.75" preco="59.90" imagem={imgblusachiffonfeminina} />
+          <CardProduto nome="Moletom burn cropped preto feminino" preco="59.90" imagem={imgblusawearfeminina} />
+          <CardProduto nome="Moletom burn cropped preto feminino" preco="59.90" imagem={imgblusasocialfemininamangalongacaramelo} />
+          <CardProduto nome="Moletom burn cropped preto feminino" preco="59.90" imagem={imgblusaheringfemininamangafeminina} />
 
-  </div>
-</div>
-
-
-<div className="moda-feminina-calças-femininas">
-  <div className="produtos">
-  <CardProduto nome="Calça Jeans feminino" preco="59.90" imagem={imgcalcajeansfeminina} />
-  <CardProduto nome="Calça Jeans feminino" preco="59.90" imagem={imgcalcajeansfeminina} />
-  <CardProduto nome="Calça Jeans feminino" preco="59.90" imagem={imgcalcajeansfeminina} />
-  <CardProduto nome="Calça Jeans feminino" preco="59.90" imagem={imgcalcajeansfeminina} />
-
-  </div>
-</div>
+        </div>
+      </div>
 
 
-<div className="moda-masculina-calcas">
-  <div className="produtos">
-  <CardProduto nome="Calça slim marrom masculina" preco="59.90" imagem={imgcalçaslimmasculina} />
-  <CardProduto nome="Calça slim marrom masculina" preco="59.90" imagem={imgcalçaslimmasculina} />
-  <CardProduto nome="Calça slim marrom masculina" preco="59.90" imagem={imgcalçaslimmasculina} />
-  <CardProduto nome="Calça slim marrom masculina" preco="59.90" imagem={imgcalçaslimmasculina} />
+      <div className="moda-feminina-calças-femininas">
+        <div className="produtos">
+          <CardProduto nome="Calça Jeans feminino" preco="59.90" imagem={imgcalcajeansfeminina} />
+          <CardProduto nome="Calça Jeans feminino" preco="59.90" imagem={imgcalcajeansfeminina} />
+          <CardProduto nome="Calça Jeans feminino" preco="59.90" imagem={imgcalcajeansfeminina} />
+          <CardProduto nome="Calça Jeans feminino" preco="59.90" imagem={imgcalcajeansfeminina} />
 
-  </div>
-</div>
+        </div>
+      </div>
+
+
+      <div className="moda-masculina-calcas">
+        <div className="produtos">
+          <CardProduto nome="Calça slim marrom masculina" preco="59.90" imagem={imgcalçaslimmasculina} />
+          <CardProduto nome="Calça slim marrom masculina" preco="59.90" imagem={imgcalçaslimmasculina} />
+          <CardProduto nome="Calça slim marrom masculina" preco="59.90" imagem={imgcalçaslimmasculina} />
+          <CardProduto nome="Calça slim marrom masculina" preco="59.90" imagem={imgcalçaslimmasculina} />
+
+        </div>
+      </div>
 
 
     </div>

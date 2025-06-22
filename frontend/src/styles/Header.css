@@ -1,5 +1,5 @@
 header {
-  background: #0F3D3E;
+  background-color:#333;
   color: white;
   padding: 10px;
   top: 0;
@@ -38,16 +38,17 @@ header {
 .barra-pesquisa {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .barra-pesquisa input {
   padding: 10px;
   color: black;
-  border-radius: 10px;
-  border: none;
-  width: 300px;
+  border-radius: 15px;
+  width: 400px;
   font-size: 1.1rem;
-  border: 01px solid #ccc;
+  border: 02px solid rgb(255, 255, 255);
+  outline: none;
 }
 
 .carrinho {
@@ -79,7 +80,7 @@ header {
   position: relative;
   display: inline-block;
   margin-right: 20px;
-  color: #F5F1EA;
+  color: #ffffff;
   cursor: pointer;
   font-weight: 500;
 }
@@ -89,7 +90,7 @@ header {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #fff;
+  background-color:  #040505;
   border: 1px solid #ccc;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   z-index: 1;
@@ -105,16 +106,196 @@ header {
 }
 
 .menu-categorias .dropdown li:hover {
-  background-color: #f0f0f0;
+color:  #0f2b22;
 }
 
-
- svg{
+  bi-search{
 height: 30px;
-width: 70px;
+width: 30px;
+cursor: pointer;
+fill: #000000;
+
+}
+
+ .bi-person , .bi-cart2{
+  height: 30px;
+width: 30px;
 cursor: pointer;
 fill: #ffffff;
-
+margin-left: 20px;
 }
 
+.bi-geo-alt{
+margin-right: 4px;
+}
 
+.Cep-li li{
+  font-weight: 900;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  background: white;
+  height: 3px;
+  width: 25px;
+  border-radius: 2px;
+}
+/* Header básico */
+header {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  top: 0;
+  position: sticky;
+  z-index: 100;
+}
+
+/* Container topo - logo + menu + etc */
+.top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* deixa logo e conteúdo espaçados */
+  padding: 0 10px;
+}
+
+/* Logo */
+.logo-wrapper {
+  flex-shrink: 0;
+}
+
+.Logo-img {
+  height: 80px; /* ajustei pra ficar menor e melhor no mobile */
+  width: auto;
+}
+
+/* Conteúdo do header */
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+/* Botão hamburger (menu-toggle) escondido no desktop */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  background: white;
+  height: 3px;
+  width: 25px;
+  border-radius: 2px;
+}
+
+/* Menu categorias (desktop) */
+.menu-categorias {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.menu-categorias ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-categorias li {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* Dropdown */
+.menu-categorias .dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #040505;
+  border: 1px solid #ccc;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.menu-categorias li:hover .dropdown {
+  display: block;
+}
+
+.menu-categorias .dropdown li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.menu-categorias .dropdown li:hover {
+  color: #0f2b22;
+}
+
+/* Ícones (corrigido) */
+.bi-search {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  fill: #000000;
+}
+
+.bi-person,
+.bi-cart2 {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  fill: #ffffff;
+  margin-left: 20px;
+}
+
+/* Media Query para mobile */
+@media (max-width: 767px) {
+  /* Exibe o botão hamburger */
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* Ajusta top-header pra ficar alinhado */
+  .top-header {
+    justify-content: space-between;
+  }
+
+  /* Esconde o conteúdo do header (pesquisa, ícones) para liberar espaço, opcional */
+  .header-content {
+    display: none;
+  }
+
+  /* Menu categorias fica oculto por padrão no mobile */
+  .menu-categorias {
+    display: none;
+    flex-direction: column;
+    background-color: #333;
+    padding: 10px;
+  }
+
+  /* Quando abrir o menu, adiciona classe 'show' para mostrar */
+  .menu-categorias.show {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Ajusta itens do menu para vertical */
+  .menu-categorias li {
+    margin: 10px 0;
+    color: white;
+  }
+}

@@ -20,7 +20,7 @@
   h4{
     color: #000000;
     font-size: 1.2rem;
-    font-weight: 500;
+    font-weight: 700;
     text-align: center;
     letter-spacing: 1px;
   }
@@ -32,12 +32,13 @@
   .Card p{
   color: #000000;
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 1px;
+    margin: 4px 0; /* reduz espaço acima e abaixo */
+
   }
   
   .Card {
-    padding: 5px;
     text-align: center;
     max-width: 240px;
     width: 100%;
@@ -45,10 +46,12 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: auto;
+
   }
   
   button {
-    background: #D9A441;
+background: linear-gradient(to right, #1b1b1c, #1b1d21, #111418);
     color: white;
     padding: 5px;
     border: none;
@@ -57,8 +60,12 @@
     font-size: 1.3rem;
     border-radius: 10px;
     width: 150px;
+    margin-top: 5px;
   }
 
+  button:hover{
+  background-color: #14a124;
+  }
   
 .botao-categoria {
   background-color:rgb(24, 24, 58);
@@ -144,4 +151,23 @@
   border-radius: 4px;
   cursor: pointer;
   width: 100%;
+}
+.cores {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.cor {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+@media (max-width: 767px) {
+.produtos{
+width: 100%;
+}
+
 }

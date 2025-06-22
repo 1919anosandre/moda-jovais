@@ -9,7 +9,6 @@ import Card from  "/src/pages/Card";
 function Home() {
   const images = [
     '/src/assets/img-principal.jpg',
-        '/src/assets/img-principal1.jpg',
     '/src/assets/img-principal2.jpg',
     '/src/assets/img-principal3.jpg'
   ];
@@ -19,8 +18,8 @@ function Home() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prevImage) => (prevImage + 1) % images.length);
-    }, 3000); // Troca a imagem a cada 3 segundos
-    return () => clearInterval(interval); // Limpa o intervalo quando o componente é desmontado
+    }, 3000); 
+    return () => clearInterval(interval); 
   }, []);
 
   return (
@@ -32,7 +31,7 @@ function Home() {
         </div>
 
         <div className="home-text">
-          <h2>Bem-vindo ao melhor site de moda jovem!</h2>
+          <h2>Bem-vindo ao Melhor Site de Moda Jovem!</h2>
           <p>Descubra as últimas tendências.</p>
         </div>
       </div>
