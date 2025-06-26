@@ -1,49 +1,50 @@
-import { useState } from 'react';
-import axios from 'axios';
-import '/src/styles/global.css';
-import '/src/styles/Login.css';
+/*import React, { useState } from 'react';
+import { login } from "/src/Api";
+import "/src/styles/Global.css";
+import "/src/styles/Login.css"
 
-function Auth() {
+function Loginpage({ onLogin }) {
   const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
-  const [mensagem, setMensagem] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-
     try {
-      const res = await axios.post('http://localhost:3001/login', { email, senha }); // CORRIGIDO
-
-      localStorage.setItem('token', res.data.token);
-      setMensagem("Login realizado com sucesso!");
-      window.location.href = '/';
+      const response = await login({ email, password });
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('userId', response.data.userId);
+      onLogin();
     } catch (err) {
-      setMensagem("Erro: " + (err.response?.data?.mensagem || "Erro ao fazer login"));
-
-    } finally {
-      setLoading(false);
+      setError('Login failed. Please check your credentials.');
     }
   };
 
   return (
-    <div className="Auth-container">
+    <form onSubmit={handleSubmit}>
       <h2>Login</h2>
-      <form className="Auth-form" onSubmit={handleSubmit}>
-        <label htmlFor="email">E-mail</label>
-        <input type="email" id="email" value={email} onChange={e => setEmail(e.target.value)} required />
-
-        <label htmlFor="senha">Senha</label>
-        <input type="password" id="senha" value={senha} onChange={e => setSenha(e.target.value)} required />
-
-        <button type="submit" disabled={loading}>{loading ? 'Entrando...' : 'Entrar'}</button>
-      </form>
-
-      {mensagem && <p>{mensagem}</p>}
-      <p className="cadastro-link">Não tem conta? <a href="#">Cadastre-se</a></p>
-    </div>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      <div>
+        <label>Email:</label>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+      </div>
+      <div>
+        <label>Password:</label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+      </div>
+      <button type="submit">Login</button>
+    </form>
   );
 }
 
-export default Auth;
+export default Loginpage;*/

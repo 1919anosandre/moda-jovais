@@ -56,7 +56,7 @@ function Carrinho() {
   return (
     <div className="pagina-carrinho">
       <div className="alinhar-titulo-svg">
-       <a href="http://localhost:5173/" ><img src={arrow} alt="Voltar" className="icone-voltar" /></a>
+       <a href="http://localhost:5173/Home" ><img src={arrow} alt="Voltar" className="icone-voltar" /></a>
         <h2>Seu Carrinho</h2>
       </div>
       {carrinho.length === 0 ? (

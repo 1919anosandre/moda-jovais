@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CoresProduto from "/src/components/CoresItens";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 function CardProduto({ nome, preco, tamanho, parcelas, cores = [], imagem = [] }) {
   const [corSelecionadaIndex, setCorSelecionadaIndex] = useState(0);
@@ -13,7 +13,7 @@ function CardProduto({ nome, preco, tamanho, parcelas, cores = [], imagem = [] }
       id: Date.now(),
       nome,
       preco: parseFloat(preco),
-      imagem,
+      imagem: Array.isArray(imagem) ? imagem[corSelecionadaIndex] : imagem, // imagem única para carrinho
       tamanho,
       parcelas,
       cor: cores[corSelecionadaIndex],
@@ -36,7 +36,7 @@ function CardProduto({ nome, preco, tamanho, parcelas, cores = [], imagem = [] }
       state: {
         nome,
         preco,
-        imagem,
+        imagens: Array.isArray(imagem) ? imagem : [imagem], // **passar sempre array no plural 'imagens'**
         tamanho,
         parcelas,
         cores,
@@ -47,13 +47,17 @@ function CardProduto({ nome, preco, tamanho, parcelas, cores = [], imagem = [] }
 
   return (
     <div className="Card">
+     {/* Imagem única conforme cor selecionada */}
       <img
         src={Array.isArray(imagem) ? imagem[corSelecionadaIndex] : imagem}
-        alt={`${nome} - ${cores[corSelecionadaIndex] || ''}`}
+        alt={`${nome} - ${cores[corSelecionadaIndex] || ""}`}
         onClick={irParaDetalhes}
         style={{ cursor: "pointer" }}
       />
-      <h4 onClick={irParaDetalhes} style={{ cursor: "pointer" }}>{nome}</h4>
+
+      <h4 onClick={irParaDetalhes} style={{ cursor: "pointer" }}>
+        {nome}
+      </h4>
 
       <CoresProduto
         cores={cores}
