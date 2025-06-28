@@ -28,7 +28,8 @@ function CardProduto({ nome, preco, tamanho, parcelas, cores = [], imagem = [] }
   const parcelamento = () => {
     const parcelas = 6;
     const valorParcela = (parseFloat(preco) / parcelas).toFixed(2);
-    return `R$ ${valorParcela} sem juros`;
+    const res = valorParcela.replace('.' , ',')
+    return `R$ ${res} sem juros`;
   };
 
   const irParaDetalhes = () => {

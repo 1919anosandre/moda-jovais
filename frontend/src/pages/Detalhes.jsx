@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useLocation, Navigate } from "react-router-dom";
-import "/src/styles/Global.css";
+import "/src/styles/global.css";
 import "/src/styles/Detalhes.css";
 import Header from "/src/components/Header";
 
 function Detalhes() {
   const { state } = useLocation();
+  const [quantidade, setQuantidade] = useState(1);
+
 
   if (!state) return <Navigate to="/" replace />;
 
@@ -45,6 +47,21 @@ function Detalhes() {
     alert(`${nome} adicionado ao carrinho!`);
   };
 
+  
+  const parcelamento = () => {
+    const parcelas = 6;
+    const valorParcela = (parseFloat(preco) / parcelas).toFixed(2);
+    const res = valorParcela.replace('.' , ',')
+    return `R$ ${res} sem juros`;
+  };
+  const aumentarQuantidade = () => {
+  setQuantidade(quantidade + 1);
+};
+
+const diminuirQuantidade = () => {
+  if (quantidade > 1) setQuantidade(quantidade - 1);
+};
+
   return (
     <>
       <Header />
@@ -66,6 +83,9 @@ function Detalhes() {
               <option value="gg">GG</option>
             </select>
 
+               <p>em 6x {parcelamento()}</p>
+<p>ou à vista <strong> R$ {String(preco).replace('.', ',')}</strong></p>
+
             <div className="cores-lista" style={{ marginTop: 20 }}>
               {cores.map((cor, idx) => (
                 <div
@@ -77,10 +97,15 @@ function Detalhes() {
                 />
               ))}
             </div>
-
             <p style={{ fontWeight: "bold", fontSize: 18 }}>Preço: R$ {preco}</p>
-
-            <button onClick={adicionarAoCarrinho}>Comprar</button>
+            <div className="alinharbuttons">
+ <div className="quantidade-controle">
+  <button onClick={diminuirQuantidade}>-</button>
+  <span>{quantidade}</span>
+  <button onClick={aumentarQuantidade}>+</button>
+</div>
+            <button className="addcarrinho" onClick={adicionarAoCarrinho}>Comprar</button>
+            </div>
           </div>
         </div>
       </div>
